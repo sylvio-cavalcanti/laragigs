@@ -30,8 +30,7 @@ class DatabaseSeeder extends Seeder
             'location' => 'Boston, MA',
             'email' => 'email1@email.com',
             'website' => 'https://www.acme.com',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus purus 
-            sollicitudin diam ultricies vulputate. Sed et odio volutpat magna tincidunt dictum eget nec enim.',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus purus sollicitudin diam ultricies vulputate. Sed et odio volutpat magna tincidunt dictum eget nec enim.',
         ]);
         Listing::create([
             'title' => 'Full-Stack Engineer',
@@ -40,8 +39,7 @@ class DatabaseSeeder extends Seeder
             'location' => 'Boston, MA',
             'email' => 'email1@email.com',
             'website' => 'https://www.acme.com',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus purus 
-            sollicitudin diam ultricies vulputate. Sed et odio volutpat magna tincidunt dictum eget nec enim.',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus purus sollicitudin diam ultricies vulputate. Sed et odio volutpat magna tincidunt dictum eget nec enim.',
         ]);
     }
 }
