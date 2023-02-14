@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Models\Listing;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,20 +16,23 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('listings', [
+        'heading' => 'Latest Listings',
+        'listings' => Listing::all()
+    ]);
 });
 
 Route::get('/hello', function () {
     return response('<h1>hello world!</h1>', 200) // Returning HTML and response code
-    ->header('Content-Type', 'text/plain' ) // header: this defines that the response is plain text instead of html
-    ->header('foo', 'bar'); // Returns a custom varibale and its value
+        ->header('Content-Type', 'text/plain') // header: this defines that the response is plain text instead of html
+        ->header('foo', 'bar'); // Returns a custom varibale and its value
 });
 
-Route::get('/posts/{id}', function($id){ // Wildcard: gets anything that is set after the /
+Route::get('/posts/{id}', function ($id) { // Wildcard: gets anything that is set after the /
     return response('Post ' . $id); // Prints the value from the url cought by the wildcard
 })->where('id', '[0-9]+'); // Using regex to define what is allowed to be entered in the wildcard
 
-Route::get('/search', function(Request $request){
+Route::get('/search', function (Request $request) {
     /*
         use Illuminate\Http\Request;
         example: http://127.0.0.1:8000/search?name=sylvio&city=recife
