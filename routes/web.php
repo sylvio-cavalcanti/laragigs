@@ -24,11 +24,39 @@ Route::get('/', function () {
 });
 
 // Single listing
-Route::get('/listings/{id}', function($id) {
+/* WITHOUT using Route model binding:  */
+// Route::get('/listings/{id}', function($id) {
+//     $listing =  Listing::find($id);
+//     if ($listing) {
+//         return view('listing', [
+//             'listing' => $listing
+//         ]);
+//     } else {
+//         abort('404');
+//     }
+// });
+
+/* USING Route model binding:  */
+/* 
+    -> '/{listing}' in the url should match the variable name in 'function(Listing $listing)'
+    -> There is no need to use find() or do the if($listing) check to show the view or an abort
+        laravel takes care of that for use already using route model binding.
+*/
+Route::get('/listings/{listing}', function(Listing $listing) {
     return view('listing', [
-        'listing' => Listing::find($id) // find() is an eloquent function
+        'listing' => $listing
     ]);
 });
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/hello', function () {
     return response('<h1>hello world!</h1>', 200) // Returning HTML and response code
