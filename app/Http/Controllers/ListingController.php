@@ -16,7 +16,8 @@ class ListingController extends Controller
     {
         // dd(request('tag'));
         return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag']))->get()
+            // Along side with the filter in the Model, filters the listing according to the query parameter in the url for tag ir search
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->get()
         ]); 
     }
 
