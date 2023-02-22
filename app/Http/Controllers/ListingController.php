@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Listings\ListingRequest; // Request Validation  
 use Illuminate\Http\Request;
 use App\Models\Listing;
 
@@ -38,9 +39,10 @@ class ListingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ListingRequest $request) // Request validation
     {
-
+        // dd($request->all());
+        return redirect()->route('index')->with('success', 'Listing created with success.');
     }
 
     /**
