@@ -19,5 +19,13 @@ use App\Models\Listing;
 // All listings 
 Route::get('/', [ListingController::class, 'index']);
 
+// Show create form
+Route::get('/listings/create', [ListingController::class, 'create'])->name('listings.create'); // Named Route
+
 // Single Listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+/* 
+    Important: /listings/create sould be on top of /listings/{listing}, 
+    otherwise an error will occour saying that the route is not defined
+*/

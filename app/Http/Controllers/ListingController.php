@@ -28,7 +28,8 @@ class ListingController extends Controller
      */
     public function create()
     {
-        //
+        // Show create form
+        return view('listings.create');   
     }
 
     /**
