@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Listing extends Model
 {
     use HasFactory;
-    
+    /* 
+        Allow mass assignment rule: In order to insert data into the Listing table in the DB, the columns 
+        in which can be inserted data, must be define in the $fillable variable.
+    */
+    protected $fillable = ['title', 'tags', 'company', 'location', 'email', 'website', 'description',];
+
     public function scopeFilter($query, array $filters) {
         if($filters['tag'] ?? false){ // Checks if there is 'tag' being passed in the url
             // dd(request('tag'));

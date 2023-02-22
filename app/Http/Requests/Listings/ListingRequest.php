@@ -33,7 +33,7 @@ class ListingRequest extends FormRequest
             'email' => ['required', 'email'],
             'website' => 'required',
             'tags' => 'required',
-            'description' => 'nullable|max:255',
+            'description' => ['required', 'max:255'],
         ];
     }
 

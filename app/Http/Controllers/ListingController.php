@@ -42,6 +42,15 @@ class ListingController extends Controller
     public function store(ListingRequest $request) // Request validation
     {
         // dd($request->all());
+        Listing::create([
+            'title' => $request->title,
+            'tags' => $request->tags,
+            'company' => $request->company,
+            'location' => $request->location,
+            'email' => $request->email,
+            'website' => $request->website,
+            'description' => $request->description,
+        ]);
         return redirect()->route('index')->with('success', 'Listing created with success.');
     }
 
